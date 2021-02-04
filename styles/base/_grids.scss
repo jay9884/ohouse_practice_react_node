@@ -1,0 +1,44 @@
+// Grid System
+
+$columns: 12;
+$column-md-width: 44px;
+$column-xl-width: 75px;
+$gutter: 10px;
+
+.container {
+  width: 100%;
+  max-width: ($column-md-width + $gutter * 2) * $columns;
+  padding: 0 $gutter;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -#{$gutter};
+}
+
+[class *= "col-md-"] {
+  padding: 0 $gutter;
+}
+
+@for $i from 1 through 12 {
+  .col-md-#{$i} {
+    width: ($column-md-width + $gutter * 2) * $i;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .container {
+    max-width: ($column-xl-width + $gutter * 2) * $columns;
+  }
+  [class *= "col-xl-"] {
+    padding: 0 $gutter;
+  }
+
+  @for $i from 1 through 12 {
+    .col-xl-#{$i} {
+      width: ($column-xl-width + $gutter * 2) * $i;
+    }
+  }
+}

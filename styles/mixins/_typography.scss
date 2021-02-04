@@ -1,0 +1,60 @@
+//typography
+
+@mixin micro($color: false) {
+  font-size: $font-size-micro;
+  line-height: $line-height-micro;
+  letter-spacing: $letter-spacing-micro;
+
+  @if($color) {
+      color: $color;
+  }
+}
+
+@mixin tiny($color: false) {
+  font-size: $font-size-tiny;
+  line-height: $line-height-tiny;
+
+  @if($color) {
+      color: $color;
+  }
+}
+
+@mixin small($color: false) {
+  font-size: $font-size-small;
+  line-height: $line-height-small;
+  letter-spacing: $letter-spacing-small;
+
+  @if($color) {
+      color: $color;
+  }
+}
+
+@mixin base($color: false) {
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  letter-spacing: $letter-spacing-base;
+
+  @if($color) {
+      color: $color;
+  }
+}
+
+@mixin medium($color: false) {
+  font-size: $font-size-medium;
+  line-height: $line-height-medium;
+  letter-spacing: $letter-spacing-medium;
+
+  @if($color) {
+      color: $color;
+  }
+}
+
+@mixin large($color: false) {
+  font-size: $font-size-large;
+  line-height: $line-height-large;
+  letter-spacing: $letter-spacing-large;
+
+  @if($color) {
+      color: $color;
+  }
+}

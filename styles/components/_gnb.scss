@@ -1,0 +1,247 @@
+.gnb-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+
+  .gnb-left,
+  .gnb-right {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .gnb-right {
+    justify-content: flex-end;
+  }
+}
+
+.page-logo {
+  width: 83px;
+  height: 23px;
+  margin-right: 70px;
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  
+  li {
+    margin-right: 36px;
+    @include medium($primary);
+    font-weight: 700;
+
+    & a:hover {
+      color: $blue;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.search {
+  position: relative;
+  margin-right: 32px;
+  .icon-search {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+  }
+  .search-input {
+    width: 264px;
+    padding-left: 40px;
+    @include base($tertiary);
+  }
+
+  .search-list {
+    position: absolute;
+    left: 0;
+    top: calc(100% + 4px);
+    z-index: 1;
+    display: none;
+    width: 100%;
+    max-height: 0;
+    padding: 16px 8px 8px 8px;
+    border: none;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: border-color 200ms ease-in, padding 200ms ease-in,
+            max-height 200ms ease-in, box-shadow 200ms ease-in;
+  }
+
+  .search-list.show {
+    display: block;
+    max-height: 272px;
+    border: 1px solid $border;
+  }
+
+  .search-list-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+
+    span {
+      @include tiny($secondary);
+      font-weight: 400;
+    }
+    button {
+      border: none;
+      background-color: inherit;
+      @include tiny($secondary);
+      cursor: pointer;
+    }
+  }
+
+  .search-list-item {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 44px;
+    padding: 10px 0 10px 16px;
+
+    &:hover {
+      background-color: $background;
+    }
+    
+    a {
+      @include base($primary);
+      font-weight: 400;
+    }
+
+    button {
+      background-color: inherit;
+      border: none;
+      cursor: pointer;
+    }
+  }
+
+  .search-is-typing-wrap {
+    position: absolute;
+    left: 0;
+    top: calc(100% + 4px);
+    z-index: 1;
+    display: none;
+    width: 100%;
+    max-height: 0;
+    padding: 8px 8px;
+    border: none;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: border-color 200ms ease-in, padding 200ms ease-in,
+            max-height 200ms ease-in, box-shadow 200ms ease-in;
+    li {
+      z-index: 2;
+      position: relative;
+      height: 40px;
+      padding: 10px 10px 10px 30px;
+      background-color: $background;
+      a {
+        @include base($tertiary);
+      }
+
+      .icon-search {
+        position: absolute;
+        left: 8px;
+        top: 13px;
+        color: $border;
+      }
+    }
+  }
+
+  .search-is-typing-wrap.show {
+    display: block;
+    max-height: 236px;
+    border: 1px solid $border;
+  }
+}
+
+// .utils {
+//   display: flex;
+//   align-items: center;
+//   li a {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     width: 32px;
+//     height: 32px;
+//     margin-right: 8px;
+//     border-radius: 50%;
+
+//     &:hover {
+//       color: $white;
+//       background-color: $blue;
+//     }
+//   }
+//   div {
+//     width: 32px;
+//     height: 32px;
+//     border-radius: 50px;
+//     img {
+//       width: 100%;
+//       height: 100%;
+//     }
+
+//     &:hover {
+//       border: 2px solid $blue;
+//     }
+//   }
+// }
+
+.utils {
+  display: flex;
+  align-items: center;
+  .unauthorized {
+    display: flex;
+    align-items: center;
+
+    .unauthorized-cart-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.3ms ease-in-out;
+
+      &:hover {
+        background-color: $blue;
+      }
+    }
+
+    span {
+      padding: 2px 2px;
+      margin: 0 6px;
+      @include small($secondary);
+      font-weight: 700;
+
+      &:hover {
+        color: $blue;
+      }
+    }
+
+    .utils-login {
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 100%;
+        top: 6px;
+        bottom: 3px;
+        margin-left: 6px;
+        border-right: 1px solid $tertiary;
+      }
+    }
+
+    .utils-sign-up {
+      margin-right: 30px;
+    }
+  }
+}
