@@ -9,7 +9,7 @@ const {createToken} = require('../lib/token');
 const connectStatus = {}
 
 router.get('/', (req, res) => {
-  console.log('connected');
+  console.log('users');
 })
 
 // 유저 목록을 조회 API

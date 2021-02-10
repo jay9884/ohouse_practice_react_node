@@ -17,7 +17,7 @@ class Gnb extends React.Component {
             <div className="gnb-left">
               <div className="page-logo">
                 <Link to="/">
-                <img src="./logo.svg" alt="내일의 집" className="page-logo-image"/>
+                <img src="/logo.svg" alt="내일의 집" className="page-logo-image"/>
                 </Link>
               </div>
               <ul className="nav-menu">

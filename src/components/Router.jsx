@@ -8,6 +8,7 @@ import {
 import Gnb from './gnb/Gnb';
 import Login from '../routes/Login';
 import SignUp from '../routes/signup/SignUp';
+import Productions from '../routes/productions';
 
 class PageRouter extends React.Component {
   state = {
@@ -34,6 +35,7 @@ class PageRouter extends React.Component {
           <Switch>
             <Route path="/login" exact={true} component={Login} />
             <Route path="/signup" exact={true} component={SignUp} />
+            <Route path="/productions" component={Productions} />
           </Switch>
         </Router>
         <h1>{username ? `hello ${username}`: 'helloworld'}</h1>

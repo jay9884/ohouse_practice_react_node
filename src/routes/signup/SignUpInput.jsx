@@ -59,9 +59,9 @@ class SignUpInput extends React.Component {
                   value={ idValue }
                   onChange={ this.handleIdOnChange }/>
         </div>
-        {idChanged && !idValue ?
-        <p style={{color:'#ff7777'}}>필수 입력 항목입니다.</p> : 
-        null}
+        {idChanged && !idValue 
+        ? <p style={{color:'#ff7777'}}>필수 입력 항목입니다.</p> 
+        : null}
       </div>
 
       <div className="sign-up-form-group">

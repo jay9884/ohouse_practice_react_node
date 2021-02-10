@@ -5,9 +5,6 @@ import SignUpInput from './SignUpInput';
 import Agreement from './Agreement';
 
 class SignUp extends React.Component {
-  state = {
-    please: false
-  }
   handleOnSubmit = (e) => {
     e.preventDefault();
     axios.post('http://localhost:3001/api/user/signup', {
@@ -32,8 +29,6 @@ class SignUp extends React.Component {
 
   filledInputFunc = (new_user) => {
     console.log(new_user);
-    this.setState({please: true});
-    console.log(this.state.please);
   }
 
   agreementFunc = (checked) => {
