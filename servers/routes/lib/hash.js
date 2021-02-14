@@ -6,7 +6,7 @@ exports.getSalt = _getSalt;
 
 const _getExpiredTime = () => {
   const expired = new Date();
-  return expired.setMinutes(expired.getMinutes() + 120);
+  return expired.setMinutes(expired.getMinutes() + 60);
 }
 exports.getExpiredTime = _getExpiredTime;
 

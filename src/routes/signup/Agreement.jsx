@@ -38,13 +38,13 @@ class Agreement extends React.Component {
 
   render() {
     let {clicked, ageChecked, usePolicyChecked, privacyChecked, commercialChecked} = this.state;
-    let { agreementFunc } = this.props;
+    // let { agreementFunc } = this.props;
 
-    if(ageChecked && usePolicyChecked && privacyChecked) {
-      commercialChecked 
-      ? agreementFunc({ commercial: 1 })
-      : agreementFunc({ commercial: 0 })
-    }
+    // if(ageChecked && usePolicyChecked && privacyChecked) {
+    //   commercialChecked 
+    //   ? agreementFunc({ commercial: 1 })
+    //   : agreementFunc({ commercial: 0 })
+    // }
 
 
     return (

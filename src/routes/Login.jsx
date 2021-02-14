@@ -1,7 +1,48 @@
 import React from 'react';
+import axios from 'axios';
 import { Link } from "react-router-dom";
 
 class Login extends React.Component {
+  handleOnSubmit = (e) => {
+    e.preventDefault();
+    console.log(e);
+    if(!e.target[0].value) {
+      alert('아이디를 입력해주세요');
+      return
+    }
+    if(!e.target[1].value) {
+      alert('비밀번호를 입력해주세요');
+      return
+    }
+
+    // let { history: { push }} = this.props;
+
+    axios.post('http://localhost:3001/api/user/login', {
+      id : e.target[0].value,
+      pw : e.target[1].value
+    }).then((response) => {
+      console.log(response);
+      const {data: { token }} = response;
+      const {data: { expired }} = response;
+      localStorage.setItem("authorization", token);
+      localStorage.setItem("expired", expired);
+      console.log(localStorage);
+      axios.defaults.headers.common["_token_"] = token;
+      // push('/');
+      window.location.replace("/");
+    }).catch(error => { 
+      const { data: { message }} = error.response;
+      console.log('error : ',error.response);
+      alert(message);
+    });
+  }
+
+  componentDidMount() {
+    localStorage.removeItem("authorization");
+    localStorage.removeItem("expired");
+    axios.defaults.headers.common["_token_"] = '';
+  }
+
   render() {
     return (
       <section className="login-page">
@@ -12,7 +53,7 @@ class Login extends React.Component {
                 <img src="./logo.svg" alt="내일의 집"/>
               </Link>
             </div>
-            <form action="localhost:3001/api/user/login" method="POST">
+            <form onSubmit={this.handleOnSubmit}>
               <div className="input-id-pw">
                 <input type="text" placeholder="아이디"/>
                 <input type="password" placeholder="비밀번호"/>

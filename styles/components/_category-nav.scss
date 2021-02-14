@@ -1,0 +1,22 @@
+.category-nav {
+  border-bottom: 1px solid $border;
+}
+.category-nav-wrap {
+  display: flex;
+  justify-content: flex-start;
+  padding: 13px 0;
+  li {
+    @include small($dark);
+    font-weight: 700;
+    margin-right: 20px;
+    cursor: pointer;
+
+    &:hover {
+      color: $blue;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

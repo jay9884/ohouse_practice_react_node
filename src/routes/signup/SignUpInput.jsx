@@ -36,15 +36,15 @@ class SignUpInput extends React.Component {
   render() {
     let { idValue, pwValue, pwValueCheck, nicknameValue,
           idChanged, pwChanged, pwCheckChanged, nicknameChanged } = this.state;
-    let { filledInputFunc } = this.props;
+    // let { filledInputFunc } = this.props;
     
-    if(idValue && pwValue.length >= 8 && (pwValue === pwValueCheck) && nicknameValue.length >= 2 && nicknameValue.length <= 15) {
-      filledInputFunc({
-        id: idValue,
-        pw: pwValue,
-        nickname: nicknameValue
-      })
-    }
+    // if(idValue && pwValue.length >= 8 && (pwValue === pwValueCheck) && nicknameValue.length >= 2 && nicknameValue.length <= 15) {
+    //   filledInputFunc({
+    //     id: idValue,
+    //     pw: pwValue,
+    //     nickname: nicknameValue
+    //   })
+    // }
     
     
     

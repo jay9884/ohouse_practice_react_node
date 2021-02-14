@@ -1,0 +1,23 @@
+.product-header-category-wrap {
+  padding-top: 24px;
+  padding-bottom: 40px;
+
+  span {
+    padding-right: 8px;
+    @include small($secondary);
+    font-weight: 400;
+    cursor: pointer;
+
+    &::after {
+      font-size: 7px;
+      color: $tertiary;
+      content: ">";
+      padding-left: 8px;
+    }
+
+    &:last-child::after {
+      content: "";
+      padding-right: 0;
+    }
+  }
+}

@@ -20,7 +20,7 @@ router.get('/:id', async (req, res) => {
   const { id } = req.params;
   let result_arr = [];
   let result = {
-    items: {}, category:{}, 
+    item: {}, category:{}, 
     thumbnail: {}, image: {}, 
     option: {}, add_option: {}, 
     delivery: {}, detail: {}
@@ -28,56 +28,88 @@ router.get('/:id', async (req, res) => {
  
   try {
     const item = await knexquery.itemFindById(id);
-    result.items = {...item};
+    if(!item) {
+      res.status(404).json({})
+      return
+    }
+    result.item = item;
   } catch(err) {
     console.error(err);
   }
 
   try {
     const category = await knexquery.categoryFindById(id);
-    result.category = {...category};
+    if(!category) {
+      res.status(404).json({})
+      return
+    }
+    result.category = category;
   } catch(err) {
     console.error(err);
   }
 
   try {
     const thumb = await knexquery.thumbnailFindById(id);
-    result.thumbnail = {...thumb};
+    if(!thumb) {
+      res.status(404).json({})
+      return
+    }
+    result.thumbnail = thumb;
   } catch(err) {
     console.error(err);
   }
 
   try {
     const image = await knexquery.imageFindById(id);
-    result.image = {...image};
+    if(!image) {
+      res.status(404).json({})
+      return
+    }
+    result.image = image;
   } catch(err) {
     console.error(err);
   }
 
   try {
     const option = await knexquery.optionFindById(id);
-    result.option = {...option};
+    if(!option) {
+      res.status(404).json({})
+      return
+    }
+    result.option = option;
   } catch(err) {
     console.error(err);
   }
 
   try {
     const add_option = await knexquery.addOptionFindById(id);
-    result.add_option = {...add_option};
+    if(!add_option) {
+      res.status(404).json({})
+      return
+    }
+    result.add_option = add_option;
   } catch(err) {
     console.error(err);
   }
 
   try {
     const delivery = await knexquery.deliveryFindById(id);
-    result.delivery = {...delivery};
+    if(!delivery) {
+      res.status(404).json({})
+      return
+    }
+    result.delivery = delivery;
   } catch(err) {
     console.error(err);
   }
 
   try {
     const detail = await knexquery.detailFindById(id);
-    result.detail = {...detail};
+    if(!detail) {
+      res.status(404).json({})
+      return
+    }
+    result.detail = detail;
   } catch(err) {
     console.error(err);
   }

@@ -7,33 +7,51 @@ import Agreement from './Agreement';
 class SignUp extends React.Component {
   handleOnSubmit = (e) => {
     e.preventDefault();
+    if(!e.target[0].value) {
+      alert('아이디를 입력해주세요.');
+      return
+    }
+    if(e.target[1].value.length < 8) {
+      alert('비밀번호를 8자 이상입력해주세요');
+      return
+    }
+    if(e.target[1].value !== e.target[2].value) {
+      alert('비밀번호가 일치하지 않습니다');
+      return
+    }
+    if(e.target[3].value.length > 15 || e.target[3].value.length < 2) {
+      alert('닉네임을 2자 이상 15자 이하로 입력해주세요.');
+      return
+    }
+    if(!(e.target[5].checked && e.target[6].checked && e.target[7].checked)) {
+      alert('필수 동의 항목을 체크해주세요.');
+      return
+    }
+
+    let { history: { push } } = this.props;
+
     axios.post('http://localhost:3001/api/user/signup', {
-      id : e.target[0].value, 
+      id : e.target[0].value,
       pw : e.target[1].value,
       nickname: e.target[3].value,
-      commercial: e.target[8].value === 'on' ? 1 : 0
+      commercial: e.target[8].checked ? 1 : 0
     }).then((response) => {
-       console.log(response);
+      console.log(response);
+      push('/login');
     }).catch(error => { 
       const { data: { message }} = error.response;
       console.log('error : ',error.response);
       alert(message);
     });
-
-    console.log(typeof e.target[0].value);
-    console.log(typeof e.target[1].value);
-    console.log(typeof e.target[3].value);
-    console.log(e.target[8].value);
-    console.log(e);
   }
 
-  filledInputFunc = (new_user) => {
-    console.log(new_user);
-  }
+  // filledInputFunc = (new_user) => {
+  //   console.log(new_user);
+  // }
 
-  agreementFunc = (checked) => {
-    console.log(checked);
-  }
+  // agreementFunc = (checked) => {
+  //   console.log(checked);
+  // }
 
   render() {
     return (
@@ -71,12 +89,12 @@ class SignUp extends React.Component {
 
             <form className="sign-up-form"
                   onSubmit={this.handleOnSubmit}>
-              <SignUpInput filledInputFunc={this.filledInputFunc}/>
-              <Agreement agreementFunc={this.agreementFunc}/>
+              <SignUpInput />
+              <Agreement />
 
               <button 
                 className="button sign-up-submit"
-                onSubmit={this.handleOnSubmit}>
+                onSubmit={() => this.handleOnSubmit}>
                     회원가입 완료
               </button>
               

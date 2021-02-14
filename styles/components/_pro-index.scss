@@ -1,0 +1,125 @@
+.product-index {
+  &-com-name {
+    @include tiny($blue);
+    font-weight: 700;
+    margin-bottom: 4px;
+    cursor: pointer;
+  }
+
+  &-title {
+    @include large($dark);
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+
+  &-only-price-wrap {
+    span {
+      font-size: 28px;
+      line-height: 32px;
+      font-weight: 500;
+      color: $dark;
+      letter-spacing: -0.02em;
+    }
+    .product-index-price {
+      font-size: 32px;
+      font-weight: 700;
+    }
+  }
+
+  &-price-wrap {
+    display: flex;
+    margin-bottom: 20px;
+    .product-index-dc-percent {
+      margin-right: 16px;
+      font-size: 44px;
+      line-height: 54px;
+      font-weight: 700;
+      color: $blue;
+      span {
+        font-size: 20px;
+        line-height: 20px;
+      }
+    }
+    .product-index-prices {
+      display: flex;
+      flex-direction: column;
+      .product-index-price-with-dc {
+        font-size: 14px;
+        line-height: 24px;
+        font-weight: 400;
+        color: $secondary;
+        letter-spacing: -0.01em;
+        text-decoration: line-through;
+        span {
+          text-decoration: none;
+        }
+      }
+
+      .product-index-dc-price {
+        font-size: 32px;
+        line-height: 32px;
+        font-weight: 700;
+        color: $dark;
+        letter-spacing: -0.02em;
+        span {
+          font-size: 28px;
+          font-weight: 500;
+        }
+        .product-has-dc {
+          margin-left: 8px;
+          padding: 2px 6px;
+          border-radius: 4px;
+          font-size: 12px;
+          line-height: 20px;
+          font-weight: 700;
+          color: $white;
+          background-color: #F86D7D;
+        }
+      }
+    }
+  }
+
+  &-point {
+    padding-bottom: 16px;
+    border-bottom: 1px solid $border;
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: 400;
+    color: $secondary;
+    letter-spacing: -0.01em;
+
+    &-num {
+      font-weight: 700;
+      color: $blue;
+    }
+  }
+
+  &-delivery-wrap {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid $border;
+    padding-top: 16px;
+    padding-bottom: 20px;
+    .product-index-delivery {
+      margin-bottom: 8px;
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 400;
+      color: $primary;
+      letter-spacing: -0.01em;
+    }
+
+    .product-index-delivery-fee {
+      display: inline;
+      width: 56px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 700;
+      color: $secondary;
+      letter-spacing: -0.005em;
+      background-color: $background;
+    }
+  }
+}

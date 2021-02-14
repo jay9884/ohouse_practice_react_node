@@ -1,0 +1,54 @@
+.product-index-options-wrap {
+  padding-top: 24px;
+  padding-bottom: 16px;
+
+  select {
+    border-color: $blue;
+    margin-bottom: 8px;
+    background-color: $white;
+  }
+}
+
+.option-wrap {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  background-color: $background;
+  border-radius: 4px;
+
+  &-top {
+    display: flex;
+    justify-content: space-between;
+    .option-title {
+      @include base($primary);
+      font-weight: 400;
+    }
+
+    .option-close {
+      background-color: inherit;
+      border: none;
+      cursor: pointer;
+    }
+  }
+
+  &-bottom {
+    display: flex;
+    justify-content: space-between;
+
+    .option-count {
+      width: 70px;
+      select {
+        height: 24px;
+        padding-top: 0;
+        padding-bottom: 0;
+        @include small($primary);
+        font-weight: 400;
+      }
+    }
+
+    .option-total-price {
+      @include base($dark);
+      font-weight: 700;
+    }
+  }
+}

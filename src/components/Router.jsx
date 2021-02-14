@@ -9,6 +9,8 @@ import Gnb from './gnb/Gnb';
 import Login from '../routes/Login';
 import SignUp from '../routes/signup/SignUp';
 import Productions from '../routes/productions';
+import Home from '../routes/Home';
+import CategoryNav from './CategoryNav';
 
 class PageRouter extends React.Component {
   state = {
@@ -32,7 +34,9 @@ class PageRouter extends React.Component {
       <>
         <Router>
           <Gnb />
+          <CategoryNav />
           <Switch>
+            <Route path="/" exact={true} component={Home} />
             <Route path="/login" exact={true} component={Login} />
             <Route path="/signup" exact={true} component={SignUp} />
             <Route path="/productions" component={Productions} />
