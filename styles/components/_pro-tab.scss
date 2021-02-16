@@ -1,0 +1,21 @@
+.product-tab-wrap {
+  padding: 15px 0;
+  background-color: $background;
+  ul {
+    display: flex;
+    justify-content: flex-start;
+
+    li {
+      width: 148px;
+      text-align: center;
+      a {
+        @include base($primary);
+        font-weight: 700;
+
+        &:hover {
+          color: $blue;
+        }
+      }
+    }
+  }
+}

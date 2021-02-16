@@ -1,6 +1,6 @@
 .product-index-options-wrap {
   padding-top: 24px;
-  padding-bottom: 16px;
+  padding-bottom: 22px;
 
   select {
     border-color: $blue;
@@ -12,6 +12,7 @@
 .option-wrap {
   display: flex;
   flex-direction: column;
+  padding: 8px 12px;
   margin-bottom: 10px;
   background-color: $background;
   border-radius: 4px;
@@ -19,6 +20,7 @@
   &-top {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 8px;
     .option-title {
       @include base($primary);
       font-weight: 400;
@@ -50,5 +52,24 @@
       @include base($dark);
       font-weight: 700;
     }
+  }
+}
+
+.cart-total-price {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 22px;
+  .text {
+    @include tiny($dark);
+    font-weight: 700;
+  }
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  button {
+    width: 49%;
   }
 }

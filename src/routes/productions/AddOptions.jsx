@@ -6,28 +6,35 @@ class AddOptionList extends React.Component {
     option_count: 1
   }
 
-  hanldeOnClick = () => {
-    
-  }
-
   handleOnChange = (e) => {
     this.setState({option_count: e.target.value});
   }
 
+  handleOnClick = (e) => {
+    const { idNum, deleteAddOption } = this.props;
+    deleteAddOption(idNum);
+  }
+
   render() {
-    const { idNum, addoption } = this.props;
+    const { idNum, addoption, addTotalPrice } = this.props;
     const temp = addoption.filter((v) => v.add_op_id === Number(idNum));
-    console.log(temp);
     const {add_op_title, add_op_price, add_op_dc_price } = temp[0];
     const {option_count} = this.state;
-    console.log(this.props);
+
+    // (!add_op_dc_price)
+    //   ? addTotalPrice({add: [idNum, add_op_price * option_count]})
+    //   : addTotalPrice({add: [idNum, add_op_dc_price * option_count]})
+
+    (!add_op_dc_price)
+      ? addTotalPrice(add_op_price * option_count)
+      : addTotalPrice(add_op_dc_price * option_count)
 
     return (
       <div className="option-wrap">
         <div className="option-wrap-top">
           <span className="option-title">{add_op_title}</span>
           <button className="option-close"
-                  onClick={hanldeOnClick}>
+                  onClick={this.handleOnClick}>
             <Icon icon="close" size={11} color="#858896"/>
           </button>
         </div>
@@ -42,9 +49,9 @@ class AddOptionList extends React.Component {
             </select>
           </div>
           <span className="option-total-price">
-            {!add_op_dc_price
+            <span className="option-total-price-value">{!add_op_dc_price
               ? (add_op_price * option_count).toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")
-              : (add_op_dc_price * option_count).toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}<span>원</span>
+              : (add_op_dc_price * option_count).toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}</span>원
           </span>
         </div>
       </div>

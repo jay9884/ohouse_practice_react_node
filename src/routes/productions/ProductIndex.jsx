@@ -2,7 +2,6 @@ import React from "react";
 
 class ProductIndex extends React.Component {
   render () {
-    console.log(this.props);
     const {item: { com_name, pro_title, pro_price, pro_dc_price, pro_deliv, pro_deliv_fee }} = this.props;
     const pretty_price = pro_price.toString()
       .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");

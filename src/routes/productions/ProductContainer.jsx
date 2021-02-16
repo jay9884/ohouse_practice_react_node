@@ -6,6 +6,8 @@ import ProductOptions from "./ProductOptions";
 import ProductIndex from "./ProductIndex";
 import ProductImage from "./ProductImage";
 import ProductDetail from "./ProductDetails";
+import ProductTab from "./ProductTab";
+import WritingReview from "./WritingReview";
 
 class Productions extends React.Component {
   state = {
@@ -22,7 +24,6 @@ class Productions extends React.Component {
 
   async componentDidMount() {
     const pathname = this.props.location.pathname;
-    console.log(pathname);
     try {
       const {data} = await axios.get(`http://localhost:3001/api${pathname}`);
       this.setState({
@@ -45,7 +46,6 @@ class Productions extends React.Component {
 
   render() {
     const { item, category, thumbnail, image, option, add_option, detail, delivery, loading } = this.state;
-    console.log(this.state);
     return (
       <>
       {loading
@@ -76,6 +76,8 @@ class Productions extends React.Component {
             </div>
           </div>
         </div>
+        <ProductTab />
+        <WritingReview item={item} thumbnail={thumbnail}/>
         <ProductImage
           image={image} />
         <ProductDetail
