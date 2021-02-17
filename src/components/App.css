@@ -124,6 +124,10 @@ li {
   z-index: -999;
   overflow: hidden; }
 
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden; }
+
 input,
 select {
   width: 100%;
@@ -920,84 +924,123 @@ select {
         .product-tab-wrap ul li a:hover {
           color: #3DA8F5; }
 
-.writing-review-wrap {
-  width: 760px;
-  padding: 40px 0 0 40px;
-  border-radius: 4px; }
-  .writing-review-wrap .writing-review-form-wrap {
+.writing-review-button {
+  border: none;
+  background-color: inherit;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: #3DA8F5;
+  font-weight: 700;
+  cursor: pointer; }
+
+.review-background {
+  position: relative; }
+  .review-background .writing-review-wrap {
+    position: absolute;
+    left: 50%;
+    top: -100%;
+    transform: translate(-50%, -94%);
+    z-index: 2;
+    display: none;
+    width: 800px;
+    max-height: 0;
+    padding: 40px 40px 0 40px;
+    border-radius: 4px;
+    border: none;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: border-color 200ms ease-in, padding 200ms ease-in, max-height 200ms ease-in, box-shadow 200ms ease-in; }
+
+.writing-review-wrap.show {
+  display: block;
+  position: relative;
+  z-index: 10;
+  max-height: 700px;
+  overflow: scroll;
+  border: 1px solid #E0E2E7;
+  background-color: #FFFFFF; }
+  .writing-review-wrap.show .writing-review-form-wrap {
     background-color: #FFFFFF;
     padding-bottom: 40px; }
-  .writing-review-wrap .review-title-wrap {
+  .writing-review-wrap.show .review-form-close-button {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background-color: inherit;
+    border: none;
+    cursor: pointer; }
+  .writing-review-wrap.show .review-title-wrap {
     text-align: center;
     margin-bottom: 30px; }
-    .writing-review-wrap .review-title-wrap .review-title {
+    .writing-review-wrap.show .review-title-wrap .review-title {
       font-size: 20px;
       line-height: 1.35;
       font-weight: 700;
       color: #1B1C32; }
-  .writing-review-wrap .review-point-info-wrap {
+  .writing-review-wrap.show .review-point-info-wrap {
     display: flex;
     align-items: center;
     height: 45px;
     padding: 0 16px;
     margin-bottom: 20px;
     background-color: #525b61; }
-    .writing-review-wrap .review-point-info-wrap .review-point-info {
+    .writing-review-wrap.show .review-point-info-wrap .review-point-info {
       font-size: 15px;
       line-height: 15px;
       font-weight: 700;
       color: #FFFFFF; }
-  .writing-review-wrap .product-thumbnail-and-info {
+  .writing-review-wrap.show .product-thumbnail-and-info {
     display: flex;
     align-items: center;
     margin-bottom: 30px; }
-    .writing-review-wrap .product-thumbnail-and-info .product-thumbnail {
+    .writing-review-wrap.show .product-thumbnail-and-info .product-thumbnail {
       width: 100px;
       height: 100px;
       border-radius: 4px;
       background-repeat: no-repeat;
       background-size: cover; }
-    .writing-review-wrap .product-thumbnail-and-info .product-title-and-company {
+    .writing-review-wrap.show .product-thumbnail-and-info .product-title-and-company {
       display: flex;
       flex-direction: column;
       margin-left: 12px; }
-      .writing-review-wrap .product-thumbnail-and-info .product-title-and-company .product-company {
+      .writing-review-wrap.show .product-thumbnail-and-info .product-title-and-company .product-company {
         font-size: 11px;
         color: #757575;
         margin-bottom: 6px; }
-      .writing-review-wrap .product-thumbnail-and-info .product-title-and-company .product-title {
+      .writing-review-wrap.show .product-thumbnail-and-info .product-title-and-company .product-title {
         font-size: 15px;
         line-height: 1.2;
         margin-bottom: 6px; }
-  .writing-review-wrap .review-count-wrap {
+  .writing-review-wrap.show .review-count-wrap {
     margin-bottom: 50px; }
-    .writing-review-wrap .review-count-wrap-top .review-count-text {
+    .writing-review-wrap.show .review-count-wrap-top .review-count-text {
       font-size: 15px;
       font-weight: 700;
       color: #292929; }
-    .writing-review-wrap .review-count-wrap-bottom {
+    .writing-review-wrap.show .review-count-wrap-bottom {
       display: flex;
       justify-content: flex-start; }
-      .writing-review-wrap .review-count-wrap-bottom span {
+      .writing-review-wrap.show .review-count-wrap-bottom span {
         width: 55px;
         font-size: 15px;
         line-height: 42px; }
-      .writing-review-wrap .review-count-wrap-bottom .review-star-count {
+      .writing-review-wrap.show .review-count-wrap-bottom .review-star-count {
         display: flex;
         align-items: center; }
-  .writing-review-wrap .review-photo-wrap {
+  .writing-review-wrap.show .review-photo-wrap {
     margin-bottom: 50px; }
-    .writing-review-wrap .review-photo-wrap .review-photo-title {
+    .writing-review-wrap.show .review-photo-wrap .review-photo-title {
       margin-bottom: 15px;
       font-size: 15px;
       font-weight: 700;
       color: #292929; }
-    .writing-review-wrap .review-photo-wrap .review-photo-info {
+    .writing-review-wrap.show .review-photo-wrap .review-photo-info {
       margin-bottom: 10px;
       font-size: 13px;
       font-weight: 400;
       color: #292929; }
-    .writing-review-wrap .review-photo-wrap label {
+    .writing-review-wrap.show .review-photo-wrap label {
       display: block;
       width: 100%;
       padding: 10px;
@@ -1011,7 +1054,7 @@ select {
       background-color: #FFFFFF;
       text-align: center;
       cursor: pointer; }
-    .writing-review-wrap .review-photo-wrap input {
+    .writing-review-wrap.show .review-photo-wrap input {
       position: absolute;
       width: 1px;
       height: 1px;
@@ -1020,56 +1063,103 @@ select {
       overflow: hidden;
       clip: rect(0, 0, 0, 0);
       border: 0; }
-  .writing-review-wrap .review-contents-wrap {
+  .writing-review-wrap.show .review-contents-wrap {
     margin-bottom: 50px; }
-    .writing-review-wrap .review-contents-wrap .review-contents-title {
+    .writing-review-wrap.show .review-contents-wrap .review-contents-title {
       margin-bottom: 15px;
       font-size: 15px;
       font-weight: 700;
       color: #292929; }
-    .writing-review-wrap .review-contents-wrap textarea {
+    .writing-review-wrap.show .review-contents-wrap textarea {
       padding: 9px 15px;
       width: 100%;
       height: 100px;
       border: 1px solid #E0E2E7; }
-      .writing-review-wrap .review-contents-wrap textarea:hover {
+      .writing-review-wrap.show .review-contents-wrap textarea:hover {
         background-color: #F7F8FA; }
-      .writing-review-wrap .review-contents-wrap textarea::placeholder {
+      .writing-review-wrap.show .review-contents-wrap textarea::placeholder {
         font-size: 16px;
         line-height: 1.5;
         letter-spacing: -0.01em;
         color: #A2A5AF;
         font-weight: 400; }
-  .writing-review-wrap .real-user-review-check {
+  .writing-review-wrap.show .real-user-review-check {
     margin-bottom: 50px; }
-    .writing-review-wrap .real-user-review-check-title {
+    .writing-review-wrap.show .real-user-review-check-title {
       margin-bottom: 15px;
       font-size: 15px;
       font-weight: 700;
       color: #292929; }
-    .writing-review-wrap .real-user-review-check-box {
+    .writing-review-wrap.show .real-user-review-check-box {
       display: flex;
       justify-content: flex-start; }
-      .writing-review-wrap .real-user-review-check-box input {
+      .writing-review-wrap.show .real-user-review-check-box input {
         width: 22px;
         height: 22px;
         margin-right: 10px; }
-      .writing-review-wrap .real-user-review-check-box p {
+      .writing-review-wrap.show .real-user-review-check-box p {
         font-size: 15px;
         font-weight: 400;
         color: #292929; }
-  .writing-review-wrap button.big.submit {
+  .writing-review-wrap.show button.big.submit {
     width: 100%;
     background-color: #35c5f0; }
-  .writing-review-wrap .warning-info {
+  .writing-review-wrap.show .warning-info {
     padding: 20px 40px;
     border-radius: 4px;
     background-color: #F7F8FA; }
-    .writing-review-wrap .warning-info li {
+    .writing-review-wrap.show .warning-info li {
       font-size: 13px;
       line-height: 1.46;
       font-weight: 400;
       color: #424242; }
-      .writing-review-wrap .warning-info li::before {
+      .writing-review-wrap.show .warning-info li::before {
         content: "•";
         margin-right: 5px; }
+
+.user-styling-shot-wrap {
+  padding: 54px 0 98px 0; }
+  .user-styling-shot-wrap-top {
+    display: flex;
+    justify-content: space-between; }
+    .user-styling-shot-wrap-top .user-styling-shot-title {
+      font-size: 18px;
+      line-height: 28px;
+      letter-spacing: -0.02em;
+      color: #1B1C32;
+      font-weight: 700; }
+      .user-styling-shot-wrap-top .user-styling-shot-title .user-styling-shot-count {
+        color: #3DA8F5; }
+  .user-styling-shot-wrap-middle {
+    position: relative;
+    width: 672px;
+    height: 520px;
+    overflow: hidden; }
+    .user-styling-shot-wrap-middle .right-arrow {
+      position: absolute;
+      z-index: 10;
+      right: 0;
+      top: 50%; }
+    .user-styling-shot-wrap-middle ol {
+      display: flex;
+      transform: translate3d(75px, 0, 0); }
+      .user-styling-shot-wrap-middle ol li {
+        margin-right: 4px; }
+        .user-styling-shot-wrap-middle ol li .review-images-wrap {
+          position: relative; }
+          .user-styling-shot-wrap-middle ol li .review-images-wrap .review-images {
+            width: 520px;
+            height: 520px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 4px; }
+          .user-styling-shot-wrap-middle ol li .review-images-wrap .review-user-info {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 520px;
+            padding: 11px 16px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 4px; }
+            .user-styling-shot-wrap-middle ol li .review-images-wrap .review-user-info span {
+              color: #ffffff; }

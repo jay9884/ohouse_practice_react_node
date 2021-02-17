@@ -8,6 +8,7 @@ import ProductImage from "./ProductImage";
 import ProductDetail from "./ProductDetails";
 import ProductTab from "./ProductTab";
 import WritingReview from "./WritingReview";
+import UserStylingShot from "./UserStylingShot";
 
 class Productions extends React.Component {
   state = {
@@ -19,7 +20,10 @@ class Productions extends React.Component {
     add_option: null,
     detail: null,
     delivery: null,
-    loading: true
+    loading: true,
+    reviewImg: null,
+    reviewCount: 0,
+    reviewAll: null
   }
 
   async componentDidMount() {
@@ -36,7 +40,19 @@ class Productions extends React.Component {
         detail: data[0].detail,
         delivery: data[0].delivery,
       })
+
       console.log(data[0]);
+    } catch(err) {
+      console.error(err);
+    }
+
+    try {
+      const {data: review} = await axios.get(`http://localhost:3001/api/review${pathname}`);
+      console.log(review);
+      this.setState({
+        reviewImg: review.reviewImg, 
+        reviewCount : review.reviewAll.total,
+        reviewAll: review.reviewAll.rows});
     } catch(err) {
       console.error(err);
     } finally {
@@ -45,7 +61,11 @@ class Productions extends React.Component {
   }
 
   render() {
-    const { item, category, thumbnail, image, option, add_option, detail, delivery, loading } = this.state;
+    const { 
+      item, category, thumbnail, 
+      image, option, add_option, 
+      detail, delivery, loading,
+      reviewImg, reviewAll, reviewCount } = this.state;
     return (
       <>
       {loading
@@ -77,6 +97,15 @@ class Productions extends React.Component {
           </div>
         </div>
         <ProductTab />
+        <div className="product-body-user-styling-shot-wrap">
+          <div className="container">
+            <div className="row">
+              <div className="col-8">
+                <UserStylingShot reviewImg={reviewImg} />
+              </div>
+            </div>
+          </div>
+        </div>
         <WritingReview item={item} thumbnail={thumbnail}/>
         <ProductImage
           image={image} />

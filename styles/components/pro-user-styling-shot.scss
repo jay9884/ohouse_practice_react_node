@@ -1,0 +1,62 @@
+.user-styling-shot-wrap {
+  padding: 54px 0 98px 0;
+  &-top {
+    display: flex;
+    justify-content: space-between;
+    .user-styling-shot-title {
+      font-size: 18px;
+      line-height: 28px;
+      letter-spacing: -0.02em;
+      color: #1B1C32;
+      font-weight: 700;
+
+      .user-styling-shot-count {
+        color: #3DA8F5;
+      }
+    }
+  }
+
+  &-middle {
+    position: relative;
+    width: 672px;
+    height: 520px;
+    overflow: hidden;
+
+    .right-arrow {
+      position: absolute;
+      z-index: 10;
+      right: 0;
+      top: 50%;
+  }
+
+    ol {
+      display: flex;
+      transform: translate3d(75px, 0, 0);
+      li {
+        margin-right: 4px;
+        .review-images-wrap {
+          position: relative;
+          .review-images {
+            width: 520px;
+            height: 520px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 4px;
+          }
+          .review-user-info {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 520px;
+            padding: 11px 16px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 4px;
+            span {
+              color: #ffffff;
+            }
+          }
+        }
+      }
+    }
+  }
+}
