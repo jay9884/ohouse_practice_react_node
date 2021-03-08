@@ -1,6 +1,7 @@
 import React from "react";
 
 class ProductCategory extends React.Component {
+
   render () {
     const { category } = this.props
     return(

@@ -7,8 +7,8 @@ import ProductIndex from "./ProductIndex";
 import ProductImage from "./ProductImage";
 import ProductDetail from "./ProductDetails";
 import ProductTab from "./ProductTab";
-import WritingReview from "./WritingReview";
 import UserStylingShot from "./UserStylingShot";
+import ProductReview from "./ProductReview";
 
 class Productions extends React.Component {
   state = {
@@ -29,7 +29,7 @@ class Productions extends React.Component {
   async componentDidMount() {
     const pathname = this.props.location.pathname;
     try {
-      const {data} = await axios.get(`http://localhost:3001/api${pathname}`);
+      const {data} = await axios.get(`http://localhost:3003/api${pathname}`);
       this.setState({
         item: data[0].item,
         category: data[0].category,
@@ -41,14 +41,14 @@ class Productions extends React.Component {
         delivery: data[0].delivery,
       })
 
-      console.log(data[0]);
+      // console.log(data[0]);
     } catch(err) {
       console.error(err);
     }
 
     try {
-      const {data: review} = await axios.get(`http://localhost:3001/api/review${pathname}`);
-      console.log(review);
+      const {data: review} = await axios.get(`http://localhost:3003/api/review${pathname}`);
+      // console.log(review);
       this.setState({
         reviewImg: review.reviewImg, 
         reviewCount : review.reviewAll.total,
@@ -65,54 +65,94 @@ class Productions extends React.Component {
       item, category, thumbnail, 
       image, option, add_option, 
       detail, delivery, loading,
-      reviewImg, reviewAll, reviewCount } = this.state;
+      reviewImg, reviewCount, reviewAll } = this.state;
     return (
       <>
       {loading
       ? null
-      : <>
-        <div className="container">
-          <ProductCategory
-            category={category} />
-        </div>
-        <div className="product-header-wrap">
+      : <div className="product-all-container">
           <div className="container">
-            <div className="row">
-              <div className="col-xl-7">
-                <div className="product-header-thumbnail-header">
-                  <ProductThumbnail
+            <ProductCategory
+              category={category} />
+          </div>
+          <div className="product-header-wrap">
+            <div className="container">
+              <div className="row">
+                <div className="col-xl-7">
+                  <div className="product-header-thumbnail-header">
+                    <ProductThumbnail
+                    thumbnail={thumbnail} />
+                  </div>
+                </div>
+                <div className="col-xl-5">
+                  <div className="product-header-index-header">
+                    <ProductIndex
+                      item={item} />
+                    <ProductOptions
+                      option={option} 
+                      add_option={add_option}
+                      mini={false} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ProductTab 
+            reviewCount={reviewCount}/>
+          <div className="product-body-user-styling-shot-wrap">
+            <div className="container">
+              <div className="row">
+                <div className="col-xl-8">
+                  <UserStylingShot reviewImg={reviewImg} />
+                </div>
+                <div className="col-xl-4">
+                    <ProductOptions
+                      option={option} 
+                      add_option={add_option}
+                      mini={true} />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="product-images">
+            <div className="container">
+              <div className="row">
+                <div className="col-xl-8">
+                  <ProductImage
+                    image={image} />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="product-detail-info-table">
+            <div className="container">
+              <div className="row">
+                <div className="col-xl-8">
+                <ProductDetail
+                  detail={detail} />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="product-review">
+            <div className="container">
+              <div className="row">
+                <div className="col-xl-8">
+                <ProductReview 
+                  reviewAll={reviewAll}
+                  reviewCount={reviewCount}
+                  item={item}
                   thumbnail={thumbnail} />
                 </div>
               </div>
-              <div className="col-xl-5">
-                <div className="product-header-index-header">
-                  <ProductIndex
-                    item={item} />
-                  <ProductOptions
-                    option={option} 
-                    add_option={add_option} />
-                </div>
-              </div>
             </div>
           </div>
+          
+          
+          <div
+            detail={detail} 
+            delivery={delivery} > </div>
         </div>
-        <ProductTab />
-        <div className="product-body-user-styling-shot-wrap">
-          <div className="container">
-            <div className="row">
-              <div className="col-8">
-                <UserStylingShot reviewImg={reviewImg} />
-              </div>
-            </div>
-          </div>
-        </div>
-        <WritingReview item={item} thumbnail={thumbnail}/>
-        <ProductImage
-          image={image} />
-        <ProductDetail
-          detail={detail} 
-          delivery={delivery}  />
-        </>
       }
       </>
     )

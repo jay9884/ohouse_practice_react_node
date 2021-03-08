@@ -123,8 +123,7 @@ class Search extends React.Component {
                 key={v.createdAt} 
                 deleteHistories={this.deleteHistories}/>
             )}
-          </ul>
-          
+          </ul>   
       </div>
     )
   }

@@ -10,21 +10,19 @@ class Gnb extends React.Component {
   state = {
     loading: true,
     loggedIn: false,
-    user_nickname: ''
+    user_nickname: '',
   }
 
   async componentDidMount() {
     const token = localStorage.getItem("authorization");
-    console.log('토큰 찾아랏!', token);
     if(token) {
       try {
         axios.defaults.headers.common["_token_"] = token;
-        console.log('헤더에 토큰 찾는데 에러는 없음');
       } catch(err) {
         console.error(err);
       }
       try {
-        await axios.get('http://localhost:3001/api/user/check_token')
+        await axios.get('http://localhost:3003/api/user/check_token')
           .then((response) => {
             console.log(response);
             const { data: { nickname }} = response;
@@ -50,7 +48,6 @@ class Gnb extends React.Component {
     }
 
     let { loggedIn } = this.state;
-    console.log(this.state);
 
     return (
       <div className="gnb">

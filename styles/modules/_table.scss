@@ -1,0 +1,17 @@
+table {
+  tr {
+    height: 48px;
+    border-bottom: 1px solid $border;
+    .table-left {
+      width: 140px;
+      border-bottom: 1px solid $border;
+      @include small($secondary);
+    }
+
+    .table-right {
+      width: 528px;
+      border-bottom: 1px solid $border;
+      @include small($primary);
+    }
+  }
+}

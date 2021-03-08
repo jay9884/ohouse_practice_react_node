@@ -1,0 +1,22 @@
+.product-images {
+  margin-bottom: 80px;
+  .product-image-title {
+    margin-bottom: 18px;
+    @include medium($dark);
+  }
+  
+  .product-image-wrap {
+    width: 692px;
+    height: auto;
+    li {
+      width: 100%;
+      height: auto;
+      .product-item {
+        width: 100%;
+        height: auto;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    }
+  }
+}

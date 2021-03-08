@@ -25,9 +25,9 @@ class OptionList extends React.Component {
     //   ? addTotalPrice({op: [idNum, op_price * option_count]})
     //   : addTotalPrice({op: [idNum, op_dc_price * option_count]})
 
-    (!op_dc_price)
-      ? addTotalPrice(op_price * option_count)
-      : addTotalPrice(op_dc_price * option_count)
+    // (!op_dc_price)
+    //   ? addTotalPrice(op_price * option_count)
+    //   : addTotalPrice(op_dc_price * option_count)
     return (
       <div className="option-wrap">
         <div className="option-wrap-top">

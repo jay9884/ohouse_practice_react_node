@@ -1,6 +1,13 @@
 .product-header-category-wrap {
-  padding-top: 24px;
+  padding-top: 152px;
   padding-bottom: 40px;
+  &.fixed {
+    position: fixed;
+    width: 100%;
+    padding: 0 60px;
+    margin: 0 auto;
+    z-index: 3;
+  }
 
   span {
     padding-right: 8px;

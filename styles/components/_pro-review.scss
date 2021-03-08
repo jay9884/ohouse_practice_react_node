@@ -1,0 +1,161 @@
+.product-review {
+  .product-review-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .production-selling-review {
+      margin-bottom: 18px;
+      @include medium($dark);
+      font-weight: 700;
+      span {
+        display: inline-block;
+        margin-left: 8px;
+        color: $blue;
+      }
+    }
+  }
+
+  .product-review-top {
+    display: flex;
+    align-items: center;
+    width: 692px;
+    height: 148px;
+    padding: 38px 0;
+    margin-bottom: 32px;
+    background-color: $background;
+
+    &-left {
+      display: flex;
+      align-items: center;
+      padding: 0 70px;
+      border-right: 1px solid $border;
+      
+      .average-title {
+        margin-left: 18px;
+        @include large($dark);
+        font-weight: 700;
+      }
+    }
+
+    &-right {
+      padding: 0 70px;
+      .product-review-each-star {
+        li {
+          display: flex;
+          align-items: center;
+          margin-bottom: 4px;
+          span {
+            @include micro($tertiary);
+            font-weight: 700;
+          }
+          &:first-child {
+            span {
+              color: $blue;
+            }
+          }
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          .product-review-each-star-per-background {
+            position: relative;
+            width: 180px;
+            height: 5px;
+            margin: 0 8px;
+            background-color: $border;
+            border-radius: 4px;
+            .product-review-each-star-per-display {
+              position: absolute;
+              left: 0;
+              top: 0;
+              height: 5px;
+              background-color: #3DA8F5;
+              border-radius: 4px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .product-review-bottom {
+    display: flex;
+    margin-top: 40px;
+    border-bottom: 1px solid $border;
+    &:last-child {
+      border-bottom: none;
+    }
+    .product-review-user-profile {
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+      border-radius: 50%;
+      overflow: hidden;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    .product-review-user-contents-wrap {
+      display: flex;
+      flex-direction: column;
+
+      .product-review-user-info {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+        &-top {
+          @include tiny($primary);
+        }
+        &-bottom {
+          display: flex;
+          align-items: center;
+          span {
+            display: inline-block;
+            margin-top: 2px;
+            margin-left: 4px;
+            @include micro($secondary);
+          }
+        }
+      }
+
+      .product-review-user-image {
+        width: 112px;
+        height: 112px;
+        margin-bottom: 20px;
+        border-radius: 4px;
+        overflow: hidden;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .product-review-user-content {
+        display: inline-block;
+        margin-bottom: 28px;
+        @include tiny($primary);
+      }
+
+      .product-review-thumb-up-button {
+        display: flex;
+        align-items: center;
+        margin-bottom: 40px;
+        button {
+          width: 120px;
+          height: 32px;
+          margin-right: 8px;
+          @include small($blue);
+          &:active {
+            background-color: $blue;
+            color: #ffffff;
+          }
+        }
+        span {
+          @include micro($primary);
+        }
+      }
+    }
+  }
+}

@@ -6,40 +6,8 @@
   cursor: pointer;
 }
 
-.review-background {
-  position: relative;
-  .writing-review-wrap {
-    position: absolute;
-    left: 50%;
-    top: -100%;
-    transform: translate(-50%, -94%);
-    z-index: 2;
-    display: none;
-    width: 800px;
-    max-height: 0;
-    padding: 40px 40px 0 40px;
-    border-radius: 4px;
-    border: none;
-    border-radius: 4px;
-    overflow: hidden;
-    transition: border-color 200ms ease-in, padding 200ms ease-in,
-            max-height 200ms ease-in, box-shadow 200ms ease-in;
-  }
-}
-
-.writing-review-wrap.show {
-  display: block;
-  position: relative;
-  z-index: 10;
-  max-height: 700px;
-  overflow: scroll;
-  border: 1px solid $border;
-  background-color: $white;
-
-  .writing-review-form-wrap {
-    background-color: $white;
-    padding-bottom: 40px;
-  }
+.writing-review-form-wrap {
+  padding-bottom: 40px;
 
   .review-form-close-button {
     position: absolute;
@@ -87,22 +55,22 @@
       background-repeat: no-repeat;
       background-size: cover;
     }
+  }
 
-    .product-title-and-company {
-      display: flex;
-      flex-direction: column;
-      margin-left: 12px;
-      .product-company {
-        font-size: 11px;
-        color: #757575;
-        margin-bottom: 6px;
-      }
+  .product-title-and-company {
+    display: flex;
+    flex-direction: column;
+    margin-left: 12px;
+    .product-company {
+      font-size: 11px;
+      color: #757575;
+      margin-bottom: 6px;
+    }
 
-      .product-title {
-        font-size: 15px;
-        line-height: 1.2;
-        margin-bottom: 6px;
-      }
+    .product-title {
+      font-size: 15px;
+      line-height: 1.2;
+      margin-bottom: 6px;
     }
   }
 
@@ -228,22 +196,22 @@
     width: 100%;
     background-color: #35c5f0;
   }
+}
 
-  .warning-info {
-    padding: 20px 40px;
-    border-radius: 4px;
-    background-color: $background;
+.warning-info {
+  padding: 20px 40px;
+  border-radius: 4px;
+  background-color: $background;
 
-    li {
-      font-size: 13px;
-      line-height: 1.46;
-      font-weight: 400;
-      color: #424242;
+  li {
+    font-size: 13px;
+    line-height: 1.46;
+    font-weight: 400;
+    color: #424242;
 
-      &::before {
-        content: "•";
-        margin-right: 5px;
-      }
+    &::before {
+      content: "•";
+      margin-right: 5px;
     }
   }
 }

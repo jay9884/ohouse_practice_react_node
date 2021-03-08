@@ -1,5 +1,17 @@
 .category-nav {
+  position: fixed;
+  top: 81px;
+  left: 0;
+  width: 100%;
+  padding: 0 60px;
+  margin: 0 auto;
+  z-index: 3;
+  display: block;
   border-bottom: 1px solid $border;
+  background-color: #ffffff;
+  &.not-fixed {
+    display: none;
+  }
 }
 .category-nav-wrap {
   display: flex;

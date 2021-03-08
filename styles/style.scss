@@ -1,15 +1,17 @@
 @import './base/reset';
 @import './base/grids';
-@import './base//commons';
+@import './base/commons';
 
 @import './constants/colors';
 @import './constants/fonts';
 
 @import './mixins/typography';
 
-// @import './modules/icons';
 @import './modules/input';
 @import './modules/button';
+@import './modules/react-modal';
+@import './modules/table';
+@import './modules/star-count';
 
 @import './components/login';
 @import './components/sign-up';
@@ -23,3 +25,6 @@
 @import './components/pro-tab';
 @import './components/pro-wring-review';
 @import './components/pro-user-styling-shot.scss';
+@import './components/pro-image';
+@import './components/pro-tables';
+@import './components/pro-review';

@@ -30,7 +30,7 @@ class SignUp extends React.Component {
 
     let { history: { push } } = this.props;
 
-    axios.post('http://localhost:3001/api/user/signup', {
+    axios.post('http://localhost:3003/api/user/signup', {
       id : e.target[0].value,
       pw : e.target[1].value,
       nickname: e.target[3].value,

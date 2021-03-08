@@ -88,8 +88,8 @@ router.post('/product_id/:id', upload.single("img"), async (req, res) => {
       star_count: review.star_count,
       contents: review.contents,
       img_originname: review.img_originname,
-      img_filename: img_filename,
-      img_type: img_type
+      img_filename: review.img_filename,
+      img_type: review.img_type
     })
   } catch(err) {
     console.error(err);

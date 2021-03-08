@@ -15,7 +15,8 @@ const reviewFindById = (id) => {
 
   return Promise.all([
     db(REVIEW)
-      .select('*')
+      .select('contents', 'nickname', 'img_filename', 'profile_pathname', 'review_id', 'star_count', 'thumb_up', `${REVIEW}.created_at`)
+      .innerJoin(USER, `${USER}.user_idx`, `${REVIEW}.user_id`)
       .andWhere('pro_id', id)
       .then(([...item]) => (item)),
     db(REVIEW)

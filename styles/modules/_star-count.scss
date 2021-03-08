@@ -1,0 +1,14 @@
+
+  .product-review-star-average-background {
+    display: flex;
+    align-items: center;
+    position: relative;
+    .product-review-star-average-display {
+      display: flex;
+      align-items: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+    }
+  }

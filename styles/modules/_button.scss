@@ -17,6 +17,12 @@
   @include medium($white);
 }
 
+.button.reverse {
+  border: 1px solid $blue;
+  @include medium($blue);
+  background-color: $white;
+}
+
 .button.big.reverse {
   border: 1px solid $blue;
   @include medium($blue);

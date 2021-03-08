@@ -20,7 +20,7 @@ class PageRouter extends React.Component {
   getUserName = async () => {
     const {
       data:{ username }
-    } = await axios.get('http://localhost:3001/api');
+    } = await axios.get('http://localhost:3003/api');
     this.setState({ username: username })
   }
 
