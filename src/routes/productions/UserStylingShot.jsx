@@ -11,28 +11,16 @@ class UserStylingShot extends React.Component {
   }
 
   handleOnClick = (e) => {
-    console.log(e);
-    const {value} = e.target;
-    const { reviewImg } = this.props;
-    const { currentImgIndex } = this.state;
-    const LENGTH = reviewImg.length;
+    const { value } = e.target;
     let newCurrentImgIndex = parseInt(value);
     let newCurrentTransform = parseInt(value) * (-524);
-    let newMiniCurrentTransfrom = parseInt(value) * (-79);
-
-    if(currentImgIndex >=4 && currentImgIndex < LENGTH) {
-      this.setState({
-        currentImgIndex: newCurrentImgIndex,
-        currentTransform: newCurrentTransform,
-        miniCurrentTransform: newMiniCurrentTransfrom
-      })
-    }
-    if(currentImgIndex < 4 && currentImgIndex >= LENGTH) {
-      this.setState({
-        currentImgIndex: newCurrentImgIndex,
-        currentTransform: newCurrentTransform
-      })
-    }
+    let newMiniCurrentTransform = parseInt(value) * (-79);
+    
+    this.setState({
+      currentImgIndex: newCurrentImgIndex, 
+      currentTransform: newCurrentTransform,
+      miniCurrentTransform: newMiniCurrentTransform
+    })
   }
 
   nextReviewImage = () => {
@@ -87,7 +75,6 @@ class UserStylingShot extends React.Component {
     const { currentImgIndex, currentTransform, miniCurrentTransform } = this.state;
     const { reviewImg } = this.props;
     const LENGTH = reviewImg.length;
-    console.log(currentImgIndex, currentTransform, miniCurrentTransform);
     // const settings = {
     //   dots: true, // 캐러셀이미지가 몇번째인지 알려주는 점을 보여줄지 정한다.
     //   arrows: true,
@@ -162,6 +149,7 @@ class UserStylingShot extends React.Component {
                     <button 
                       className="review-images mini"
                       value={i}
+                      type="button"
                       style={{backgroundImage: `url(/review/${v.img_filename})`}}
                       onClick={this.handleOnClick}></button>
                   </div>

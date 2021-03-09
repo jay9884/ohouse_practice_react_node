@@ -21,7 +21,19 @@ const upload = multer({
 });
 
 router.get('/productions/:id', async (req, res) => {
+  const page = req.query.page === undefined ? 1 : +req.query.page
+  const pageSize = req.query.pageSize === undefined ? 10 : +req.query.pageSize
   const {id} = req.params;
+
+  if (isNaN(page)) {
+    res.status(400).json({message: 'page의 값이 숫자가 아닙니다.'})
+    return
+  }
+  if (isNaN(pageSize)) {
+    res.status(400).json({message: 'pageSize의 값이 숫자가 아닙니다.'})
+    return
+  }
+
   let result = {
     reviewImg: {},
     reviewAll: {}
@@ -32,7 +44,7 @@ router.get('/productions/:id', async (req, res) => {
   }
 
   try {
-    const item = await knexquery.reviewFindById(id);
+    const item = await knexquery.reviewFindById(id, page, pageSize);
     if(!item) {
       res.status(404).json({})
       return
@@ -44,7 +56,7 @@ router.get('/productions/:id', async (req, res) => {
   }
 
   try {
-    const item = await knexquery.onlyReviewImgFindById(id);
+    const item = await knexquery.onlyReviewImgFindById(id, page, pageSize);
     if(!item) {
       res.status(404).json({})
       return
@@ -59,7 +71,6 @@ router.get('/productions/:id', async (req, res) => {
 
 // 유저 생성 API
 router.post('/product_id/:id', upload.single("img"), async (req, res) => {
-  console.log('hihi');
   const { id } = req.params;
   console.log(id);
   const {star_count, contents} = req.body;

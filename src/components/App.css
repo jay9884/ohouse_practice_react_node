@@ -1383,6 +1383,16 @@ table tr {
 .product-detail-info-table {
   margin-bottom: 98px; }
 
+.production-selling-delivery-wrap {
+  margin-bottom: 98px; }
+  .production-selling-delivery-wrap .production-selling-delivery h1 {
+    margin-bottom: 18px;
+    font-size: 18px;
+    line-height: 1.55556;
+    letter-spacing: -0.02em;
+    color: #1B1C32;
+    font-weigth: 700; }
+
 .product-review .product-review-title {
   display: flex;
   justify-content: space-between;
@@ -1522,3 +1532,33 @@ table tr {
         line-height: 16px;
         letter-spacing: -0.005em;
         color: #3F4150; }
+
+.product-footer {
+  width: 100%;
+  height: 210px;
+  padding-top: 32px;
+  padding-bottom: 44px;
+  background-color: #F7F8FA; }
+  .product-footer .product-page-footer {
+    background-color: #F7F8FA;
+    padding-top: 32px;
+    padding-bottom: 44px; }
+    .product-footer .product-page-footer-content p {
+      font-size: 12px;
+      line-height: 16px;
+      letter-spacing: -0.005em;
+      color: #858896; }
+    .product-footer .product-page-footer-content-top {
+      margin-bottom: 22px; }
+      .product-footer .product-page-footer-content-top h1 {
+        font-size: 14px;
+        line-height: 1.71429;
+        letter-spacing: -0.01em;
+        color: #3F4150;
+        font-weight: 700; }
+      .product-footer .product-page-footer-content-top h2 {
+        font-size: 24px;
+        line-height: 1.41667;
+        letter-spacing: -0.01em;
+        color: #3F4150;
+        font-weight: 700; }

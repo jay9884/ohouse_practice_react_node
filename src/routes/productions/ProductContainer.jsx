@@ -9,6 +9,8 @@ import ProductDetail from "./ProductDetails";
 import ProductTab from "./ProductTab";
 import UserStylingShot from "./UserStylingShot";
 import ProductReview from "./ProductReview";
+import ProductDelivery from './ProductDelivery';
+import ProductFooter from './ProductFooter';
 
 class Productions extends React.Component {
   state = {
@@ -147,11 +149,25 @@ class Productions extends React.Component {
               </div>
             </div>
           </div>
-          
-          
-          <div
-            detail={detail} 
-            delivery={delivery} > </div>
+          <div className="product-delivery-info-table">
+            <div className="container">
+              <div className="row">
+                <div className="col-xl-8">
+                <ProductDelivery
+                  delivery={delivery} />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="product-footer">
+            <div className="container">
+              <div className="row">
+                <div className="col-xl-12">
+                <ProductFooter />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       }
       </>

@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
 router.get('/user_list', (req, res) => {
   const page = req.query.page === undefined ? 1 : +req.query.page
   const pageSize = req.query.pageSize === undefined ? 10 : +req.query.pageSize
-  const name = req.query.name2
+  const name = req.query.name
 
   if (isNaN(page)) {
     res.status(400).json({message: 'page의 값이 숫자가 아닙니다.'})
