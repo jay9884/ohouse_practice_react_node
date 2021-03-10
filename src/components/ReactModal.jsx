@@ -18,7 +18,7 @@ class ReactModal extends React.Component {
   }
 
   render() {
-    const {visible, children, maskClosable, closeModal, closable} = this.props;
+    const {visible, children, maskClosable, closeModal, closable, center} = this.props;
     return (
       <>
       <div className={visible ? "modal-overlay show" : "modal-overlay"}>
@@ -27,6 +27,7 @@ class ReactModal extends React.Component {
             tabIndex="-1"
             onClick={maskClosable ? this.onMaskClick : null}>
         <div className="modal-inner"
+              style={center ? {top: 50+"%"} : null}
             tabIndex="0">
           {children}
         </div>

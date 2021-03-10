@@ -13,23 +13,22 @@ import Home from '../routes/Home';
 import CategoryNav from './CategoryNav';
 
 class PageRouter extends React.Component {
-  state = {
-    username: null
-  }
+  // state = {
+  //   username: null
+  // }
 
-  getUserName = async () => {
-    const {
-      data:{ username }
-    } = await axios.get('http://localhost:3003/api');
-    this.setState({ username: username })
-  }
+  // getUserName = async () => {
+  //   const {
+  //     data:{ username }
+  //   } = await axios.get('http://localhost:3003/api');
+  //   this.setState({ username: username })
+  // }
 
-  componentDidMount() {
-    this.getUserName()
-  }
+  // componentDidMount() {
+  //   this.getUserName()
+  // }
 
   render() {
-    let { username } = this.state;
     return (
       <>
         <Router>
@@ -42,7 +41,6 @@ class PageRouter extends React.Component {
             <Route path="/productions" component={Productions} />
           </Switch>
         </Router>
-        <h1>{username ? `hello ${username}`: 'helloworld'}</h1>
       </>
     )
   }

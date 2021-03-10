@@ -11,6 +11,7 @@ import UserStylingShot from "./UserStylingShot";
 import ProductReview from "./ProductReview";
 import ProductDelivery from './ProductDelivery';
 import ProductFooter from './ProductFooter';
+import ProductQuestion from "./ProductQuestion";
 
 class Productions extends React.Component {
   state = {
@@ -25,7 +26,8 @@ class Productions extends React.Component {
     loading: true,
     reviewImg: null,
     reviewCount: 0,
-    reviewAll: null
+    reviewAll: null,
+    reviewArr: []
   }
 
   async componentDidMount() {
@@ -49,7 +51,7 @@ class Productions extends React.Component {
     }
 
     try {
-      const {data: review} = await axios.get(`http://localhost:3003/api/review${pathname}`);
+      const {data: review} = await axios.get(`http://localhost:3003/api/review/all${pathname}`);
       // console.log(review);
       this.setState({
         reviewImg: review.reviewImg, 
@@ -57,8 +59,16 @@ class Productions extends React.Component {
         reviewAll: review.reviewAll.rows});
     } catch(err) {
       console.error(err);
+    } 
+
+    try {
+      const { reviewAll } = this.state;
+      const newReviewArr = reviewAll.map((v) => v.star_count)
+      this.setState({reviewArr: newReviewArr});
+    } catch(err) {
+      console.error(err);
     } finally {
-      this.setState({ loading: false })
+      this.setState({loading: false})
     }
   }
 
@@ -67,7 +77,8 @@ class Productions extends React.Component {
       item, category, thumbnail, 
       image, option, add_option, 
       detail, delivery, loading,
-      reviewImg, reviewCount, reviewAll } = this.state;
+      reviewImg, reviewCount, reviewArr } = this.state;
+
     return (
       <>
       {loading
@@ -116,7 +127,8 @@ class Productions extends React.Component {
               </div>
             </div>
           </div>
-          <div className="product-images">
+          <div className="product-images"
+                id="production-selling-information">
             <div className="container">
               <div className="row">
                 <div className="col-xl-8">
@@ -136,20 +148,31 @@ class Productions extends React.Component {
               </div>
             </div>
           </div>
-          <div className="product-review">
+          <div className="product-review"
+                id="production-selling-review">
             <div className="container">
               <div className="row">
                 <div className="col-xl-8">
                 <ProductReview 
-                  reviewAll={reviewAll}
-                  reviewCount={reviewCount}
                   item={item}
-                  thumbnail={thumbnail} />
+                  thumbnail={thumbnail}
+                  reviewArr={reviewArr} />
                 </div>
               </div>
             </div>
           </div>
-          <div className="product-delivery-info-table">
+          <div className="product-question"
+                id="production-selling-question">
+            <div className="container">
+              <div className="row">
+                <div className="col-xl-8">
+                <ProductQuestion />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="product-delivery-info-table"
+                id="production-selling-delivery">
             <div className="container">
               <div className="row">
                 <div className="col-xl-8">

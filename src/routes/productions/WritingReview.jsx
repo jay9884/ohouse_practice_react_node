@@ -116,7 +116,8 @@ class WritingReview extends React.Component {
         visible={visible}
         maskClosable={true}
         closeModal={this.closeModal}
-        closable={true}>
+        closable={true}
+        center={false}>
           <div className="writing-review-wrap">
             <form
               onSubmit={this.handleOnImgSubmit}

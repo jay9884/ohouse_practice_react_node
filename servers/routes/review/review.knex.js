@@ -20,6 +20,7 @@ const reviewFindById = (id, page, pageSize) => {
       .select('contents', 'nickname', 'img_filename', 'profile_pathname', 'review_id', 'star_count', 'thumb_up', `${REVIEW}.created_at`)
       .innerJoin(USER, `${USER}.user_idx`, `${REVIEW}.user_id`)
       .andWhere('pro_id', id)
+      .orderBy('review_id', 'desc')
       .limit(pageSize)
       .offset(offset)
       .then(([...item]) => (item)),
@@ -32,8 +33,29 @@ const reviewFindById = (id, page, pageSize) => {
     }))
 }
 
-const onlyReviewImgFindById = (id, page, pageSize) => {
-  const offset = (+page - 1) * + pageSize;
+const reviewAllFindById = (id) => {
+
+  if(!id) {
+    return Promise.reject('조회한 상품이 없습니다');
+  }
+
+  return Promise.all([
+    db(REVIEW)
+      .select('contents', 'nickname', 'img_filename', 'profile_pathname', 'review_id', 'star_count', 'thumb_up', `${REVIEW}.created_at`)
+      .innerJoin(USER, `${USER}.user_idx`, `${REVIEW}.user_id`)
+      .andWhere('pro_id', id)
+      .orderBy('review_id', 'desc')
+      .then(([...item]) => (item)),
+    db(REVIEW)
+      .count({total: 'pro_id'})
+      .andWhere('pro_id', id)
+  ]).then(([item, [{total}]]) => ({
+      total,
+      rows: item
+    }))
+}
+
+const onlyReviewImgFindById = (id) => {
   if(!id) {
     return Promise.reject('조회한 상품이 없습니다');
   }
@@ -42,13 +64,13 @@ const onlyReviewImgFindById = (id, page, pageSize) => {
     .select('img_filename', 'id')
     .innerJoin(USER, `${USER}.user_idx`, `${REVIEW}.user_id`)
     .andWhere('pro_id', id)
-    .limit(pageSize)
-    .offset(offset)
+    .orderBy('review_id', 'desc')
     .then(([...item]) => (item))
 }
 
 module.exports = {
   reviewCreate,
   reviewFindById,
+  reviewAllFindById,
   onlyReviewImgFindById
 }

@@ -20,9 +20,49 @@ const upload = multer({
   limits: { fileSize: 1000000 }
 });
 
+//리뷰 전체 조회
+router.get('/all/productions/:id', async (req, res) => {
+  const {id} = req.params;
+
+  let result = {
+    reviewImg: {},
+    reviewAll: {}
+  }
+  if(!id) {
+    res.status(404).json({message: '요청 path가 올바르지 않습니다.'});
+    return
+  }
+
+  try {
+    const item = await knexquery.reviewAllFindById(id);
+    if(!item) {
+      res.status(404).json({})
+      return
+    }
+    
+    result.reviewAll = item;
+  } catch(err) {
+    console.error(err);
+  }
+
+  try {
+    const item = await knexquery.onlyReviewImgFindById(id);
+    if(!item) {
+      res.status(404).json({})
+      return
+    }
+    result.reviewImg = item;
+  } catch(err) {
+    console.error(err);
+  }
+
+  return res.json(result);
+})
+
+//리뷰 페이징 조회
 router.get('/productions/:id', async (req, res) => {
   const page = req.query.page === undefined ? 1 : +req.query.page
-  const pageSize = req.query.pageSize === undefined ? 10 : +req.query.pageSize
+  const pageSize = req.query.pageSize === undefined ? 5 : +req.query.pageSize
   const {id} = req.params;
 
   if (isNaN(page)) {
@@ -69,7 +109,7 @@ router.get('/productions/:id', async (req, res) => {
   return res.json(result);
 })
 
-// 유저 생성 API
+// 리뷰 생성 API
 router.post('/product_id/:id', upload.single("img"), async (req, res) => {
   const { id } = req.params;
   console.log(id);
@@ -103,7 +143,7 @@ router.post('/product_id/:id', upload.single("img"), async (req, res) => {
       img_type: review.img_type
     })
   } catch(err) {
-    console.error(err);
+    res.status(401).json({message: err});
   }
 })
 

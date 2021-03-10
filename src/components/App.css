@@ -226,6 +226,7 @@ select {
   background-color: #fff;
   border-radius: 10px;
   width: 680px;
+  height: auto;
   top: 85%;
   transform: translateY(-50%);
   margin: 0 auto;
@@ -262,6 +263,52 @@ table tr {
     top: 0;
     left: 0;
     overflow: hidden; }
+
+.paging-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 98px; }
+  .paging-wrap li {
+    display: flex;
+    justify-content: center;
+    margin-right: 4px;
+    cursor: pointer; }
+    .paging-wrap li :last-child {
+      margin-right: 0; }
+    .paging-wrap li .paging-arrow {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 26px;
+      height: 26px;
+      border: 1px solid #E0E2E7;
+      border-radius: 4px;
+      background-color: #FFFFFF;
+      font-size: 16px;
+      line-height: 1.5;
+      letter-spacing: -0.01em;
+      color: #3F4150;
+      cursor: pointer; }
+      .paging-wrap li .paging-arrow.paging-left {
+        margin-right: 24px;
+        transform: rotate(90deg); }
+      .paging-wrap li .paging-arrow.paging-right {
+        margin-left: 24px;
+        transform: rotate(270deg); }
+    .paging-wrap li .paging-number {
+      width: 26px;
+      height: 26px;
+      border: none;
+      border-radius: 4px;
+      background-color: #FFFFFF;
+      font-size: 16px;
+      line-height: 1.5;
+      letter-spacing: -0.01em;
+      color: #3F4150;
+      cursor: pointer; }
+      .paging-wrap li .paging-number.clicked {
+        background-color: #3DA8F5;
+        color: #FFFFFF; }
 
 .login-page {
   padding-top: 80px; }
@@ -1532,6 +1579,127 @@ table tr {
         line-height: 16px;
         letter-spacing: -0.005em;
         color: #3F4150; }
+
+.product-question .product-question-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  .product-question .product-question-title .production-selling-question {
+    margin-bottom: 18px;
+    margin-right: 571px;
+    font-size: 18px;
+    line-height: 1.55556;
+    letter-spacing: -0.02em;
+    color: #1B1C32;
+    font-weight: 700; }
+    .product-question .product-question-title .production-selling-question span {
+      display: inline-block;
+      margin-left: 8px;
+      color: #3DA8F5; }
+
+.product-question .product-question-contents {
+  margin-bottom: 40px; }
+  .product-question .product-question-contents-top {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px; }
+    .product-question .product-question-contents-top span {
+      font-size: 12px;
+      line-height: 16px;
+      letter-spacing: -0.005em;
+      color: #A2A5AF; }
+    .product-question .product-question-contents-top .product-question-category {
+      display: inline-block;
+      margin-bottom: 8px;
+      color: #3F4150; }
+  .product-question .product-question-contents-bottom {
+    display: flex; }
+    .product-question .product-question-contents-bottom span {
+      display: inline-block;
+      margin-right: 10px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #3DA8F5; }
+    .product-question .product-question-contents-bottom p {
+      font-size: 16px;
+      line-height: 1.5;
+      letter-spacing: -0.01em;
+      color: #3F4150; }
+
+.writing-question-button {
+  border: none;
+  background-color: inherit;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: #3DA8F5;
+  font-weight: 700;
+  cursor: pointer; }
+
+.writing-question-form-wrap {
+  padding-bottom: 40px; }
+  .writing-question-form-wrap .question-form-close-button {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background-color: inherit;
+    border: none;
+    cursor: pointer; }
+  .writing-question-form-wrap .question-title-wrap {
+    text-align: center;
+    margin-bottom: 30px; }
+    .writing-question-form-wrap .question-title-wrap .question-title {
+      font-size: 20px;
+      line-height: 1.35;
+      font-weight: 700;
+      color: #1B1C32; }
+  .writing-question-form-wrap .kind-of-question-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #292929;
+    margin-bottom: 16px; }
+  .writing-question-form-wrap .kind-of-question-wrap {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 600px;
+    height: 100px;
+    margin-bottom: 30px; }
+    .writing-question-form-wrap .kind-of-question-wrap div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 33.333333%;
+      height: 49px;
+      border: 1px solid #E0E2E7;
+      color: #424242;
+      font-size: 15px;
+      line-height: 40px;
+      font-weight: 700;
+      cursor: pointer; }
+      .writing-question-form-wrap .kind-of-question-wrap div:hover {
+        background-color: #F7F8FA; }
+      .writing-question-form-wrap .kind-of-question-wrap div.clicked {
+        background-color: #35c5f0;
+        color: #FFFFFF; }
+  .writing-question-form-wrap textarea {
+    width: 100%;
+    height: 98px;
+    padding: 9px 15px;
+    border: 1px solid #E0E2E7; }
+  .writing-question-form-wrap p {
+    display: inline-block;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    line-height: 1.71429;
+    letter-spacing: -0.01em;
+    color: #858896; }
+  .writing-question-form-wrap .button-wrap {
+    width: 100%; }
+    .writing-question-form-wrap .button-wrap button {
+      width: 100%;
+      background-color: #35c5f0; }
 
 .product-footer {
   width: 100%;

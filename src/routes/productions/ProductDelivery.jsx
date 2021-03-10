@@ -6,8 +6,7 @@ class ProductDelivery extends React.Component {
     return (
       <>
       <div className="production-selling-delivery-wrap">
-        <div className="production-selling-delivery"
-        id="production-selling-delivery">
+        <div className="production-selling-delivery">
           <h1>배송</h1>
         </div>
         <table>

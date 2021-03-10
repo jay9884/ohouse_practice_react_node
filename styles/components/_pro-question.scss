@@ -1,0 +1,48 @@
+.product-question {
+  .product-question-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .production-selling-question {
+      margin-bottom: 18px;
+      margin-right: 571px;
+      @include medium($dark);
+      font-weight: 700;
+      span {
+        display: inline-block;
+        margin-left: 8px;
+        color: $blue;
+      }
+    }
+  }
+  .product-question-contents {
+    margin-bottom: 40px;
+    &-top {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+      span {
+        @include micro($tertiary);
+      }
+      .product-question-category {
+        display: inline-block;
+        margin-bottom: 8px;
+        color: $primary;
+      }
+    }
+
+    &-bottom {
+      display: flex;
+      span {
+        display: inline-block;
+        margin-right: 10px;
+        font-size: 16px;
+        font-weight: 700;
+        color: $blue;
+      }
+      p {
+        @include base($primary);
+      }
+    }
+  }
+}

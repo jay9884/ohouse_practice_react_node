@@ -62,7 +62,7 @@ class ProductTab extends React.Component {
           <ul>
             <li><a href="#production-selling-information">상품정보</a></li>
             <li><a href="#production-selling-review">리뷰<span>{reviewCount}</span></a></li>
-            <li><a href="#production-selling-qestion">문의</a></li>
+            <li><a href="#production-selling-question">문의</a></li>
             <li><a href="#production-selling-delivery">배송/환불</a></li>
           </ul>
         </div>

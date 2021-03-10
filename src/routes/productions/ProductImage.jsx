@@ -5,8 +5,7 @@ class ProductImage extends React.Component {
     const {image} = this.props;
     return(
       <div>
-        <h1 className="product-image-title"
-            id="production-selling-information">
+        <h1 className="product-image-title">
           상품정보
         </h1>
         <ol className="product-image-wrap">
