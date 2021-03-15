@@ -34,6 +34,7 @@ class Productions extends React.Component {
     const pathname = this.props.location.pathname;
     try {
       const {data} = await axios.get(`http://localhost:3003/api${pathname}`);
+      // console.log(data[0]);
       this.setState({
         item: data[0].item,
         category: data[0].category,
